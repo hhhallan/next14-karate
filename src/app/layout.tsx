@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Layout, Main } from "@/components/craft";
-import { Roboto } from "next/font/google";
+import { Layout } from "@/components/craft";
+import { Roboto, Rosario } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 
@@ -9,6 +9,11 @@ const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin"],
   variable: "--font-roboto",
+});
+const rosario = Rosario({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-rosario",
 });
 
 export const metadata: Metadata = {
@@ -23,9 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <Layout>
-      <body className={`${roboto.variable} antialiased`}>
+      <body
+        // className={`${roboto.variable} ${rosario.variable} bg-background font-sans text-foreground antialiased`}
+        className={`${roboto.variable} ${rosario.variable} bg-gradient-to-b from-background to-white font-sans text-foreground antialiased`}
+      >
         <Navbar />
-        <Main>{children}</Main>
+        <main>{children}</main>
         <Footer />
       </body>
     </Layout>
