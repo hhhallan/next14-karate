@@ -1,10 +1,13 @@
 import { Container, Section } from "@/components/craft";
 import { Card, CardContent } from "@/components/ui/card";
+import { DATA } from "@/data/resume";
 import Image from "next/image";
 
 export const QuoteSection = () => {
+  const data = DATA.landing.quote;
+
   return (
-    <Section id="cta">
+    <Section id="quote">
       <Container>
         <Card className="mx-auto max-w-3xl overflow-hidden border-0 bg-transparent">
           <div className="grid md:grid-cols-2">
@@ -12,23 +15,20 @@ export const QuoteSection = () => {
               <Image
                 width={2000}
                 height={2000}
-                alt="TODO: à changer"
                 className="h-full object-cover object-center"
-                src="/photo.png"
+                src={data.image.src}
+                alt={data.image.alt}
               />
             </div>
             <CardContent className="flex flex-col justify-center gap-y-10 p-7 md:p-10">
-              <blockquote className="text-balance text-lg font-semibold italic leading-snug lg:text-xl lg:leading-normal xl:text-2xl">
-                &quot;Est-on un maître lorsque l&apos;on{" "}
-                <span className="bg-liner px-2 text-background">
-                  continue d&apos;apprendre
-                </span>{" "}
-                ?
-              </blockquote>
+              <blockquote
+                className="text-balance text-lg font-semibold italic leading-snug lg:text-xl lg:leading-normal xl:text-2xl"
+                dangerouslySetInnerHTML={{ __html: data.sentence || "" }}
+              />
               <div className="py-2.5">
-                <p className="font-semibold">Kensho C. APPIN</p>
+                <p className="font-semibold">{data.author.name}</p>
                 <p className="text-sm uppercase text-muted-foreground">
-                  Fondateur Kararte Budokenkyudo
+                  {data.author.title}
                 </p>
               </div>
             </CardContent>

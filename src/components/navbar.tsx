@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export const Navbar = () => {
   return (
-    <Container>
+    <Container className="!py-0">
       <header className="flex h-20 w-full shrink-0 items-center">
         <Sheet>
           <SheetTrigger asChild>
