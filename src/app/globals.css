@@ -13,6 +13,10 @@ h2 {
   }
 }
 
+.bg-liner {
+  background: var(--liner);
+}
+
 @layer base {
   :root {
     --background: 51, 81%, 92%;
